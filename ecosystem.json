@@ -1,0 +1,28 @@
+{
+  "apps": [{
+    "name": "Sword",
+    "script": "server.js",
+    "env": {
+      "COMMON_VARIABLE": "true"
+    },
+    "env_production": {
+      "NODE_ENV": "production"
+    }
+  }],
+  "deploy": {
+    "production": {
+      "user": "gecko525",
+      "host": ["127.0.0.1"],
+      "port": "39999",
+      "ref": "origin/master",
+      "repo": "git@github.com:Gecko525/sword.git",
+      "path": "/www/sword/production",
+      "ssh_options": "StrictHostKeyChecking=no",
+      "post-deploy": "npm install",
+      "pre-deploy-local": "echo 'Deploy Done!'",
+      "env": {
+        "NODE_ENV": "production" 
+      }
+    }
+  }
+}
